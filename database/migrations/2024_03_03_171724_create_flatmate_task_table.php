@@ -13,10 +13,17 @@ return new class extends Migration
     {
         Schema::create('flatmate_task', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('flatmate_id');
-            $table->bigInteger('task_id');
+            $table->unsignedBigInteger('flatmate_id');
+            $table->unsignedBigInteger('task_id');
             $table->timestamps();
         });
+
+
+        Schema::table('flatmate_task', function (Blueprint $table) {
+            $table->foreign('flatmate_id')->references('id')->on('flatmates');
+            $table->foreign('task_id')->references('id')->on('tasks');
+        });
+
     }
 
     /**

@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('flatmate_id');
             $table->unsignedBigInteger('task_id');
-            $table->date('executed_on');
             $table->timestamps();
         });
 
